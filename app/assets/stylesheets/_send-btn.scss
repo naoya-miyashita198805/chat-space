@@ -1,0 +1,12 @@
+@mixin send-btn {
+  height: 50px;
+  width: 100px;
+  border-style: none;
+  background-color: #38aef0;
+  cursor: pointer;
+  color: #ffffff;
+  margin-left: 15px;
+}
+
+// 191行目
+// ボタンは結構使うと思うのでボタンのパーシャル化を選択しました

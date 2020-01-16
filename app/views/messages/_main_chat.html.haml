@@ -1,0 +1,37 @@
+.main-chat
+  .main-chat__header
+    .info-box
+      %p.info-box__group-name test
+      %ul.info-box__group-member Member: masa
+    .edit-box
+      = link_to "#", class: "edit-box__edit-text" do
+        .edit-box__edit-text__edit-btn Edit
+  .main-chat__message-list
+    .list-box
+      .list-box__contents
+        .list-box__contents__message-name 投稿者なし
+        .list-box__contents__message-date 2020/01/16(Thu) 09:22:10
+      .list-box__message-text 投稿なし
+      = image_tag "#", class: "message-image", size: "200x133", alt: "画像投稿なし" do
+        -# .ist-box__message-image
+    .list-box
+      .list-box__contents
+        .list-box__contents__message-name 投稿者なし
+        .list-box__contents__message-date 2020/01/16(Thu) 09:22:10
+      .list-box__message-text 投稿なし
+      = image_tag "#", class: "message-image", size: "200x133", alt: "画像投稿なし" do
+        -# .ist-box__message-image
+    .list-box
+      .list-box__contents
+        .list-box__contents__message-name 投稿者なし
+        .list-box__contents__message-date 2020/01/16(Thu) 09:22:10
+      .list-box__message-text 投稿なし
+      = image_tag "#", class: "message-image", size: "200x133", alt: "画像投稿なし" do
+        -# .ist-box__message-image
+  .main-chat__message-form
+    .main-chat__message-form__footer
+      %input{type: "text_field", placeholder: "type a message", class: "input-space"}
+      %label{class: "form-icon"}
+        = icon('fas','image')
+        %input{type: "file", class: "form-icon__file"}
+    %input{type: "submit", value: "Send", class: "send-btn"}
