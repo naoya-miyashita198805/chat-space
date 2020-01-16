@@ -1,0 +1,16 @@
+.side-bar
+  .side-bar__header
+    .user-box
+      .user-box__box-name
+        %p masa
+      .user-box__box-item
+        = link_to "#", class: "user-box__box-item__fas-icon" do
+          = icon('fas', 'edit')
+          %span<>
+        = link_to "#", class: "user-box__box-item__fas-icon" do
+          = icon('fas', 'cog')
+          %span<>
+  .side-bar__group-list
+    = link_to "#", class: ".group-box" do
+      %p.group-box__list-name techcamp 
+      %p.group-box__list-message まだメッセージがありません
