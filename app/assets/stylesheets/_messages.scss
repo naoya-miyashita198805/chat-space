@@ -45,8 +45,6 @@
       .group-box {
         height: 100px;
         background-color: #2f3e51;
-        // color: #ffffff;
-        // font-weight: bold;
         &__list-name {
           font-size: 15px;
           padding: 20px 0 5px 0;
@@ -66,7 +64,6 @@
     background-color: #ffffff;
     height: 100vh;
     width: calc(100% - 300px);
-    // padding-top: 100px;
     &__header {
       background-color: #ffffff;
       height: 100px;
@@ -79,12 +76,6 @@
       position: fixed;
       z-index: 1;
       width: 100%;
-      
-      // 最初のサイドとメインで二つに分けた
-      // 構造上z-index関係は使い辛い
-      // 使うならメインの方はブロック三つ
-      // にしておくべきだったtと思うだけ
-      // 追記 一応できたがコメントアウトしておく
       .info-box {
         color: #333333;
         &__group-name {
@@ -121,15 +112,13 @@
       overflow: scroll;
       .list-box {
         width: 100%;
-        // 親の高さはとりあえず、子の表記
-        // に任せる感じで
         padding: 35px 0 46px 0;
         &__contents {
           display: flex;
           &__message-name {
             font-size: 16px;
             color: $section-color;
-            // 上の色はパーシャルでやったよ！
+            // 上の色はパーシャル,_color.scss
             padding-right: 5px;
           }
           &__message-date {
@@ -157,16 +146,13 @@
       justify-content: space-between;
       align-items: center;
       padding: 0 40px 0 40px;
-      // overflow: hidden; 
       &__footer {
         height: 50px;
         width: 100%;
-        // background-color: rgba(112, 153, 132, 0.527);
         display: flex;  
         position: relative;
         bottom: 0;
         z-index: 1;
-        // position: relative;
         .input-space {
           height: 50px;
           width: 100%;
@@ -190,13 +176,6 @@
       .send-btn {
         @include send-btn;
         // パーシャルを使用 stylesheets/_send-btn.css
-        // height: 50px;
-        // width: 100px;
-        // border-style: none;
-        // background-color: #38aef0;
-        // cursor: pointer;
-        // color: #ffffff;
-        // margin-left: 15px;
       }
     }
   }
