@@ -1,0 +1,23 @@
+.side-bar
+  .side-bar__header
+    .user-box
+      .user-box__box-name
+        -# %p masa
+        = current_user.name
+      .user-box__box-item
+        = link_to new_group_path, class: "user-box__box-item__fas-icon" do
+          = icon('fas', 'edit')
+          %span<>
+        = link_to edit_user_path(current_user), class: "user-box__box-item__fas-icon" do
+          = icon('fas', 'cog')
+          %span<>
+  .side-bar__group-list
+    - current_user.groups.each do |group|
+      -# ここのuser.groupsは論理的に考えよう
+      -# 一人のuserに対して複数のグループがあるからgroupsになるという
+      -# 見解出会っているはず、特に中間テーブルではない基礎カリキュラムのおさらい
+      -# と思ったがcurrent_userのヘルパーメソッドにgroupsテーブルがついてるだけか
+      = link_to "#", class: ".group-box" do
+        .group-box__list-name 
+          = group.name
+        %p.group-box__list-message まだメッセージがありません

@@ -1,5 +1,14 @@
 -# %h1 Messages#index
 -# %p Find me in app/views/messages/index.html.haml
 .wrapper
-  = render "side_bar"
+  -# = render "groups/side_bar"
+  -# 上記はコントローラgroupsが管理することになったので
+  -# messagesコントローラ先であるこちらでは
+  -# 削除する。ちなみに上記の通りにしてroutes
+  -# のrootをmessagesに書き戻すと再びこちらの管理下における
+
+  -# 別々にすることにより2画面別々表記が可能になる
+  -# これは最初の設計段階の構想があるからできたものであり
+  -# しっかりどのように作るのかの念入りな作業、初期の設計が一番
+  -# 重要であると痛感する
   = render "main_chat"
