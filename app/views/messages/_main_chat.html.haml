@@ -4,7 +4,7 @@
       %p.info-box__group-name test
       %ul.info-box__group-member Member: masa
     .edit-box
-      = link_to "#", class: "edit-box__edit-text" do
+      = link_to edit_group_path(current_user), class: "edit-box__edit-text" do
         .edit-box__edit-text__edit-btn Edit
   .main-chat__message-list
     .list-box
