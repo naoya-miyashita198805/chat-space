@@ -1,12 +1,13 @@
 -# %h1 Messages#index
 -# %p Find me in app/views/messages/index.html.haml
 .wrapper
-  -# = render "groups/side_bar"
+  = render "groups/side_bar"
   -# 上記はコントローラgroupsが管理することになったので
   -# messagesコントローラ先であるこちらでは
-  -# 削除する。ちなみに上記の通りにしてroutes
+  -# 削除する。ちなみに上記の通りにしてroutes.rb
   -# のrootをmessagesに書き戻すと再びこちらの管理下における
-
+  -# だが消してしまうとsaid_barが消失してmainが左によってしまうので
+  -# 上記のように残しておこう 実証済み
   -# 別々にすることにより2画面別々表記が可能になる
   -# これは最初の設計段階の構想があるからできたものであり
   -# しっかりどのように作るのかの念入りな作業、初期の設計が一番

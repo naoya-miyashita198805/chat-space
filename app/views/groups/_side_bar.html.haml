@@ -17,7 +17,14 @@
       -# 一人のuserに対して複数のグループがあるからgroupsになるという
       -# 見解出会っているはず、特に中間テーブルではない基礎カリキュラムのおさらい
       -# と思ったがcurrent_userのヘルパーメソッドにgroupsテーブルがついてるだけか
-      = link_to "#", class: ".group-box" do
-        .group-box__list-name 
+      = link_to  group_messages_path(group), class: ".group-box" do
+        .group-box__list-name
           = group.name
-        %p.group-box__list-message まだメッセージがありません
+        %p.group-box__list-message 
+          = group.show_last_message
+          -# = group.message.order("message DESC")
+          -# "/groups/#{group.id}/messages"
+          -# group_messages_path(group)がなぜ(group)でいいのか
+          -# それは元々groups-_controllerが主体であるから
+          -# groupのview,groupのcontroller,groupのテーブル
+          -# group.show_last_messageはgroupのモデルから飛んできている

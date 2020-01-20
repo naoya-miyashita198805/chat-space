@@ -137,9 +137,9 @@
           padding-top: 12px;
           margin-bottom: 10px;
         }
-        // .message-image {
-        //   画像で何かあったら使用する
-        // }
+        .message-body {
+          
+        }
       }
     }
     &__message-form {
@@ -151,36 +151,42 @@
       justify-content: space-between;
       align-items: center;
       padding: 0 40px 0 40px;
-      &__footer {
-        height: 50px;
+      .new_message {
+        display: flex;
+        justify-content: space-between;
         width: 100%;
-        display: flex;  
-        position: relative;
-        bottom: 0;
-        z-index: 1;
-        .input-space {
+        .footer {
           height: 50px;
           width: 100%;
-          background-color: #fff;
-          border-style: none;
-          padding: 0 40px 0 10px;
-        }
-        .form-icon {
-          height: 50px;
-          color: black;
-          cursor: pointer;
-          position: absolute;
-          top: 10px;
-          right: 10px;
-          font-size: 20px;
-          &__file {
-            display: none;
+          display: flex; 
+          justify-content: space-between;
+          position: relative;
+          bottom: 0;
+          z-index: 1;
+          .input-space {
+            height: 50px;
+            width: 100%;
+            background-color: #fff;
+            border-style: none;
+            padding: 0 40px 0 10px;
+          }
+          .form-icon {
+            height: 50px;
+            color: black;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            &__file {
+              display: none;
+            }
           }
         }
-      }
-      .send-btn {
-        @include send-btn;
-        // パーシャルを使用 stylesheets/_send-btn.css
+        .send-btn {
+          @include send-btn;
+          // パーシャルを使用 stylesheets/_send-btn.css
+        }
       }
     }
   }
