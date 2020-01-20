@@ -1,37 +1,31 @@
 .main-chat
   .main-chat__header
     .info-box
-      %p.info-box__group-name test
-      %ul.info-box__group-member Member: masa
+      %p.info-box__group-name
+        = @group.name
+        -# これはmessage controllerがbefore_actionにより
+        -# ネストの恩恵を生かしmessagesコントローラの全てのアクションで
+        -# @groupを利用できるようになる。故にこの表記でgroupの名前を取得できる
+      .info-box__group-member
+        Member:
+        - @group.users.each do |user|
+          = user.name
     .edit-box
       = link_to edit_group_path(current_user), class: "edit-box__edit-text" do
         .edit-box__edit-text__edit-btn Edit
   .main-chat__message-list
-    .list-box
-      .list-box__contents
-        .list-box__contents__message-name 投稿者なし
-        .list-box__contents__message-date 2020/01/16(Thu) 09:22:10
-      .list-box__message-text 投稿なし
-      = image_tag "#", class: "message-image", size: "200x133", alt: "画像投稿なし" do
-        -# .ist-box__message-image
-    .list-box
-      .list-box__contents
-        .list-box__contents__message-name 投稿者なし
-        .list-box__contents__message-date 2020/01/16(Thu) 09:22:10
-      .list-box__message-text 投稿なし
-      = image_tag "#", class: "message-image", size: "200x133", alt: "画像投稿なし" do
-        -# .ist-box__message-image
-    .list-box
-      .list-box__contents
-        .list-box__contents__message-name 投稿者なし
-        .list-box__contents__message-date 2020/01/16(Thu) 09:22:10
-      .list-box__message-text 投稿なし
-      = image_tag "#", class: "message-image", size: "200x133", alt: "画像投稿なし" do
-        -# .ist-box__message-image
+    = render @messages
   .main-chat__message-form
-    .main-chat__message-form__footer
-      %input{type: "text_field", placeholder: "type a message", class: "input-space"}
-      %label{class: "form-icon"}
-        = icon('fas','image')
-        %input{type: "file", class: "form-icon__file"}
-    %input{type: "submit", value: "Send", class: "send-btn"}
+    = form_for [@group, @message] do |f|
+      .footer
+        = f.text_field :content, class: "input-space", placeholder: "type a message"
+        = f.label :image, class: "form-icon" do
+          = icon("fas", "image")
+          = f.file_field :image, class: "form-icon__file"
+      = f.submit "Send", class: "send-btn"
+      -# = form_for [@group, @message] do |f|のせいでクラスが一つできるので
+      -# # SCSSの装飾が崩れるので注意！
+      -# form_for [@group, @message] do |f|は messagesのルーティングが
+      -# groupsにネストされているためそのため、form_forの第１引数@groupにはどのグループの
+      -# メッセージとして保存したいのか、第２引数@messageにはMessageモデルのからの
+      -# インスタンス（Message.new）をあらかじめセットしておく必要があります。

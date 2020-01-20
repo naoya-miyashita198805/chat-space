@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   # なぜresourcesと言う複数形になるのか、それはidと結びついたりするときに
   # 複数形となる、今回はdeviseのcurrent_userとか使うときにはしっかり複数形にしよう
-  # と言うか最初から複数形にしとくのもあり
-  resources :groups, only: [:index, :new, :create, :edit, :update]
+  
+  resources :groups, only: [:index, :new, :create, :edit, :update] do
+    resources :messages, only: [:index, :create]
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
 end

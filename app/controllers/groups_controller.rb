@@ -17,7 +17,8 @@ class GroupsController < ApplicationController
     # <<は配列に要素を追加するためのものここではログイン中のユーザ情報がはいる。
     # current_userはログインしているユーザの情報を取得すると言うので
     # レコード情報全て含むと考えられる
-  #   ただそうなら@group.users = Group.newと記述すればいいのでは
+    # ただそうなら@group.users = Group.newと記述すればいいのでは
+    #そうするとcurrent_user情報が入らない
    end
 
   def create
