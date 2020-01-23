@@ -22,8 +22,8 @@
           = group.name
         %p.group-box__list-message 
           = group.show_last_message
-          -# = group.message.order("message DESC")
-          -# "/groups/#{group.id}/messages"
+          -# = group.message.order("message DESC")不要
+          -# "/groups/#{group.id}/messages"でもいけるが_pathを使用
           -# group_messages_path(group)がなぜ(group)でいいのか
           -# それは元々groups-_controllerが主体であるから
           -# groupのview,groupのcontroller,groupのテーブル

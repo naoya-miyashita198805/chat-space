@@ -12,6 +12,7 @@
 # json.group_id @message.group_id
 # json.user_id @message.user_id
 # json.updated_at @message.updated_at
+# ここまでは自分で書いて間違えて文
 json.user_name @message.user.name
 json.content @message.content
 json.image @message.image_url

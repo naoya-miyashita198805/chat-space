@@ -61,14 +61,14 @@ $(function(){
       var html = buildHTML(data);
       $('.main-chat__message-list').append(html);
       // このクラス以降にHTMLの上の記述が入ってくる
-      $('.input-space').val('');
-      // 空欄もピンポイント
+      // $('.input-space').val('');
+      // 空欄もピンポイントで指定する、なお68行目のresetがあるため記述も不要
       $('.send-btn').prop('disabled', false);
       // なんでも押せるようにするにはそこのクラスピンポイント全体ではない
       $('.new_message')[0].reset();
       // 自動で作られるformクラスにかけてやる
       // フォームを空にする処理、これしないと画像が削除されない
-      // あとおそらく63行の構文で61行は補填できる
+      // あと6８行の構文で6４行目の構文は補填できる
       // 実際resetできた便利
       $('.main-chat__message-list').animate({ scrollTop: $('.main-chat__message-list')[0].scrollHeight});
       // カリキュラム3818に説明あり
