@@ -21,26 +21,31 @@ class MessagesController < ApplicationController
 
   def create
     @message = @group.messages.new(message_params)
+    # respond_to do |format|
+    #   format.html { redirect_to group_messages_path, notice: "メッセージを送信しました" }
+    #   format.json もしメッセージが保存できたらというif文で囲ってやる
     if @message.save
-      redirect_to group_messages_path(@group), notice: 'メッセージが送信されました'
+      # redirect_to group_messages_path(@group), notice: 'メッセージが送信されました'
+      # 上の文は非同期通信により不要となる
+      # 常にformat.htmlとformat.json両方いるわけではないと思ったけどやっぱりいる
+      respond_to do |format|
+        format.html { redirect_to group_messages_path, notice: "メッセージを送信しました" }
+        format.json
+      end
     else
       @messages = @group.messages.includes(:user)
       flash.now[:alert] = 'メッセージを入力してください。'
       render :index
       # これはフラッシュメッセージ導入後に使えるflashメソッド
     end
-    # @message = Message.create(content_params)
-    # redirect_to group_message_path
   end
-
-  # def show
-  # end
 
   private
 
   def message_params
     params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
     # params.require(:comment).permit(:text).merge(user_id: current_user.id, tweet_id: params[:tweet_id])
+    # 参考に使用params未使用
   end
 
   def set_group
