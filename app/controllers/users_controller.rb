@@ -1,4 +1,15 @@
 class UsersController < ApplicationController
+  # ここには書いていないがuserモデルにクラスメソッドとして
+  # def searchのコードが書いてある
+  def index
+    @users = User.search(params[:keyword], current_user.id)
+    respond_to do |format|
+      format.html{redirect_to root_path}
+      format.json
+      # これによって、サーバーはJSON形式で値を返し
+      # jbuilderファイルが読み込まれるようになる
+    end
+  end
 
   def edit
   end

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # ログイン画面にするためこちらのコードは不要になるが後学のためにラインアウトにしておく
   
   root "groups#index"
-  resources :users, only: [:edit, :update]
+  resources :users, only: [:index, :edit, :update]
   # なぜresourcesと言う複数形になるのか、それはidと結びついたりするときに
   # 複数形となる、今回はdeviseのcurrent_userとか使うときにはしっかり複数形にしよう
   
