@@ -7,7 +7,7 @@ $(function(){
     // list-boxはrenderに入れないほうがいいかも一応入れてやってみる
     if (message.image) {
       var html = 
-      `<div class = "list-box">
+      `<div class = "list-box" data-message-id=${message.id}>
         <div class = "list-box__contents">
           <div class = "list-box__contents__message-name">
             ${message.user_name}
