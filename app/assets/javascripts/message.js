@@ -2,54 +2,54 @@ $(function(){
   var buildHTML = function(message) {
     if (message.content && message.image) {
       //data-idが反映されるようにしている
-      var html = `<div class="list-box message" data-message-id=` + message.id + `>` +
-        `<div class="list-box__contents">` +
-          `<div class="list-box__contents__message-name">` +
-            message.user_name +
-          `</div>` +
-          `<div class="list-box__contents__message-date">` +
-            message.created_at +
-          `</div>` +
-        `</div>` +
-        `<div class="list-box__message-text">` +
-          `<p class="message-body">` +
-            message.content +
-          `</p>` +
-          `<img src="` + message.image + `" class="message-body__image" >` +
-        `</div>` +
-      `</div>`
+      var html = `<div class="list-box message" data-message-id= ${message.id} >
+        <div class="list-box__contents">
+          <div class="list-box__contents__message-name">
+            ${message.user_name}
+          </div>
+          <div class="list-box__contents__message-date">
+            ${message.created_at}
+          </div>
+        </div>
+        <div class="list-box__message-text">
+          <p class="message-body">
+            ${message.content}
+          </p>
+          <img src=" ${message.image} " class="message-body__image" >
+        </div>
+      </div>`
     } else if (message.content) {
       //同様に、data-idが反映されるようにしている
-      var html = `<div class="list-box message" data-message-id=` + message.id + `>` +
-        `<div class="list-box__contents">` +
-          `<div class="list-box__contents__message-name">` +
-            message.user_name +
-          `</div>` +
-          `<div class="list-box__contents__message-date">` +
-            message.created_at +
-          `</div>` +
-        `</div>` +
-        `<div class="list-box__message-text">` +
-          `<p class="message-body">` +
-            message.content +
-          `</p>` +
-        `</div>` +
-      `</div>`
+      var html = `<div class="list-box message" data-message-id= ${message.id}>
+        <div class="list-box__contents">
+          <div class="list-box__contents__message-name">
+            ${message.user_name}
+          </div>
+          <div class="list-box__contents__message-date">
+            ${message.created_at}
+          </div>
+        </div>
+        <div class="list-box__message-text">
+          <p class="message-body">
+            ${message.content}
+          </p>
+        </div>
+      </div>`
     } else if (message.image) {
       //同様に、data-idが反映されるようにしている
-      var html = `<div class="list-box message" data-message-id=` + message.id + `>` +
-        `<div class="list-box__contents">` +
-          `<div class="list-box__contents__message-name">` +
-            message.user_name +
-          `</div>` +
-          `<div class="list-box__contents__message-date">` +
-            message.created_at +
-          `</div>` +
-        `</div>` +
-        `<div class="message-body">` +
-          `<img src="` + message.image + `" class="message-body__image" >` +
-        `</div>` +
-      `</div>`
+      var html = `<div class="list-box message" data-message-id= ${message.id} >
+        <div class="list-box__contents">
+          <div class="list-box__contents__message-name">
+            ${message.user_name}
+          </div>
+          <div class="list-box__contents__message-date">
+            ${message.created_at}
+          </div>
+        </div>
+        <div class="message-body">
+          <img src=" ${message.image}" class="message-body__image" >
+        </div>
+      </div>`
     };
     return html;
   };
