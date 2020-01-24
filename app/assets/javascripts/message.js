@@ -93,7 +93,7 @@ $(function(){
     // これは自動更新の構文
     //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
     last_message_id = $('.message:last').data("message-id");
-    console.log(last_message_id)
+    // console.log(last_message_id)この場所で当然last_message_idの値が調べられるぞ
     $.ajax({
       //ルーティングで設定した通り/groups/id番号/api/messagesとなるよう文字列を書く
       // url: "api/messages",これのurlがおかしい？
@@ -127,7 +127,7 @@ $(function(){
       }
     })
     .fail(function() {
-      console.log('error');
+      alert('error');
     });
   };
   if (document.location.href.match(/\/groups\/\d+\/messages/)) {
