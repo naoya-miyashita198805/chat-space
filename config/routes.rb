@@ -10,8 +10,13 @@ Rails.application.routes.draw do
   # なぜresourcesと言う複数形になるのか、それはidと結びついたりするときに
   # 複数形となる、今回はdeviseのcurrent_userとか使うときにはしっかり複数形にしよう
   
-  resources :groups, only: [:index, :new, :create, :edit, :update] do
+  resources :groups, only: [:new, :create, :edit, :update] do
     resources :messages, only: [:index, :create]
+
+    namespace :api do
+      resources :messages, only: :index, defaults: { format: 'json' }
+      # defaultsオプションを利用して、このルーティングが来たらjson形式でレスポンスするよう指定している。
+    end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
